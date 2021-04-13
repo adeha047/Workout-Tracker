@@ -10,13 +10,14 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
-});
+}).then(()=> console.log("connected to db"));
 
-// routes
-app.use(require("./routes/api.js"));
+ // routes
+app.use(require("./routes/api-routes.js"));
+app.use(require("./routes/html-routes.js"));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
