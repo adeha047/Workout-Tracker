@@ -21,6 +21,7 @@ router.get("/api/workouts", (req, res) => {
       }
     ]).then(dbWorkout => {
       // console.log(JSON.stringify(dbWorkout, null, 2));
+      // console.log(dbWorkout);
       res.json(dbWorkout);
     })
     .catch(err => {
@@ -54,7 +55,6 @@ router.put("/api/workouts/:id", (req, res) => {
 router.get("/api/workouts/range", (req, res) => {
   db.Workout.find({})
     .then(dbWorkout => {
-      console.log(dbWorkout);
       res.json(dbWorkout);
     })
     .catch(err => {
