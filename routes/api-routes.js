@@ -26,11 +26,11 @@ router.get("/api/workouts", (req, res) => {
     [
       {
         $addFields: {
-          totalduration: { $sum: "$exercises.duration'" }
+          totalDuration: { $sum: "$exercises.duration" }
         }
       }
     ]).then(dbWorkout => {
-      console.log(JSON.stringify(dbWorkout, null, 2));
+      // console.log(JSON.stringify(dbWorkout, null, 2));
       res.json(dbWorkout);
     })
     .catch(err => {
