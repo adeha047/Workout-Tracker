@@ -29,7 +29,7 @@ router.get("/api/workouts", (req, res) => {
       res.status(400).json(err);
     });
 });
-
+// this put request searches for the id of the collection and updates according to the data added in the models/workout.js file. 
 router.put("/api/workouts/:id", (req, res) => {
   db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } })
     .then(dbWorkout => {
