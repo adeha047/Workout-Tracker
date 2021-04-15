@@ -40,6 +40,7 @@ router.put("/api/workouts/:id", (req, res) => {
     });
 });
 
+//this request will now take in the total duration and display in a chart on the stats page. 
 router.get("/api/workouts/range", (req, res) => {
 db.Workout.aggregate(
   [
