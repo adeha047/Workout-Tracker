@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const db = require("../models");
 
+//api route to get all added info from collection in mongoDB
 router.post("/api/workouts", ({ body }, res) => {
   db.Workout.create(body)
     .then(dbWorkout => {
@@ -10,7 +11,7 @@ router.post("/api/workouts", ({ body }, res) => {
       res.status(400).json(err);
     });
 });
-
+//this request takes in the total duration and adds it to the data field. 
 router.get("/api/workouts", (req, res) => {
   db.Workout.aggregate(
     [
@@ -28,20 +29,7 @@ router.get("/api/workouts", (req, res) => {
       res.status(400).json(err);
     });
 });
-// router.put("/api/workouts/:id", (req, res) => {
 
-//   db.Workout.findOneAndUpdate(
-//       { _id: req.params.id },
-//       {
-//           $inc: { totalDuration: req.body.duration },
-//           $push: { exercises: req.body }
-//       })
-//       .then(dbWorkout => {
-//           res.json(dbWorkout);
-//       }).catch(err => {
-//           res.json(err);
-//       });
-// });
 router.put("/api/workouts/:id", (req, res) => {
   db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } })
     .then(dbWorkout => {
@@ -52,15 +40,6 @@ router.put("/api/workouts/:id", (req, res) => {
     });
 });
 
-// router.get("/api/workouts/range", (req, res) => {
-//   db.Workout.find({})
-//     .then(dbWorkout => {
-//       res.json(dbWorkout);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// })
 router.get("/api/workouts/range", (req, res) => {
 db.Workout.aggregate(
   [
