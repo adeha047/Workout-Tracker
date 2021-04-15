@@ -52,14 +52,31 @@ router.put("/api/workouts/:id", (req, res) => {
     });
 });
 
+// router.get("/api/workouts/range", (req, res) => {
+//   db.Workout.find({})
+//     .then(dbWorkout => {
+//       res.json(dbWorkout);
+//     })
+//     .catch(err => {
+//       res.json(err);
+//     });
+// })
 router.get("/api/workouts/range", (req, res) => {
-  db.Workout.find({})
-    .then(dbWorkout => {
-      res.json(dbWorkout);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+db.Workout.aggregate(
+  [
+    {
+      $addFields: {
+        totalDuration: { $sum: "$exercises.duration" }
+      }
+    }
+  ]).then(dbWorkout => {
+    // console.log(JSON.stringify(dbWorkout, null, 2));
+    // console.log(dbWorkout);
+    res.json(dbWorkout);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
 })
 
 module.exports = router;
