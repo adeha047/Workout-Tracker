@@ -20,7 +20,7 @@
 
 ## Demo
 
-![demo](/assets/da_burger_app.gif)
+![demo](/assets/workout-tracker.gif)
 
 ## Links 
 
