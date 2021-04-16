@@ -4,7 +4,7 @@
 
   ## Description 
 
-  As a user, I can add different workouts on a daily basis. There is two options of resistance training or cardio training. The dashboard is designed to display the total duration of the workouts entered. There's separate charts for 
+  As a user, I can add as many workouts as I want and track the stats of those workouts for each day. There is two workout options of resistance training or cardio training. The dashboard is designed to display the total duration of the workouts entered and the weight of the resistance training workouts. 
 
 
 ## Table of Contents
@@ -20,20 +20,15 @@
 
 ## Demo
 
-
+![demo](/assets/da_burger_app.gif)
 
 ## Links 
 
+https://github.com/adeha047/Workout-Tracker
 
-https://github.com/adeha047/da_burger_web_app
-
-https://desolate-waters-85761.herokuapp.com/
-
-
+https://murmuring-castle-07897.herokuapp.com
 
 ## Usage
-
-
 
 
 ## Tech Used
